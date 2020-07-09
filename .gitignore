@@ -1,0 +1,5 @@
+backend/__pycache__/
+backend/toursNtrip/__pycache__/
+backend/app/__pycache__/
+backend/app/migrations/
+py3/
