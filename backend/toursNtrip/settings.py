@@ -40,7 +40,19 @@ INSTALLED_APPS = [
     'graphene_django',
     'corsheaders',
     'app',
+    'djrichtextfield',
 ]
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': True,
+        # 'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    }
+}
 
 JWT_VERIFY_EXPIRATION = False
 CORS_ORIGIN_ALLOW_ALL = True
@@ -88,14 +100,14 @@ WSGI_APPLICATION = 'toursNtrip.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'toursNtrip',
-        'USER':"rahul",
-        "PASSWORD":"",
-        "HOST":'localhost',
-        "PORT":'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE':'django.db.backends.postgresql',
+        # 'NAME':'toursNtrip',
+        # 'USER':"rahul",
+        # "PASSWORD":"",
+        # "HOST":'localhost',
+        # "PORT":'5432'
     }
 }
 
@@ -137,3 +149,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/photos/')

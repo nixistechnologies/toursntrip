@@ -4,3 +4,4 @@ from app.models import *
 
 admin.site.register(Package)
 admin.site.register(State)
+admin.site.register(ProductImages)
