@@ -5,3 +5,5 @@ from app.models import *
 admin.site.register(Package)
 admin.site.register(State)
 admin.site.register(ProductImages)
+admin.site.register(lead)
+admin.site.register(Package_Itinerary)
