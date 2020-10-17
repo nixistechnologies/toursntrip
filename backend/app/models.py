@@ -17,10 +17,22 @@ class State(models.Model):
 # class Itinerary(models.Model):
 
 
+class lead(models.Model):
+    name = models.CharField(max_length=50)
+    contact = models.CharField(max_length=10)
+    email = models.EmailField()
+    date_of_travel = models.DateField()
+    destination = models.CharField(max_length=20)
+    from_city = models.CharField(max_length=20)
+    spacial_request = models.TextField(null=True, blank=True)
+    def __str__(self):
+        return self.name
+
+
 
 class Package(models.Model):
     name = models.CharField(max_length=150)
-    itinerary = models.TextField()
+    itinerary = RichTextField()
     listPrice = models.FloatField()
     mrp = models.FloatField()
     duration = models.IntegerField()
@@ -29,12 +41,13 @@ class Package(models.Model):
     best_time = models.CharField(max_length=100)
     # overview = models.TextField()
     overview = RichTextField()
-    inclusion = models.TextField()
-    exclusion = models.TextField()
-    cancellation_policy = models.TextField()
+    inclusion = RichTextField()
+    exclusion = RichTextField()
+    cancellation_policy = RichTextField()
     tnc = models.TextField()
     state = models.CharField(max_length=100)
     tags = models.CharField(max_length=200)
+    is_active = models.BooleanField(default=False)
     # itnery =:
 
     def __str__(self):
@@ -116,4 +129,7 @@ class ProductImages(models.Model):
 
 
     
-
+class Package_Itinerary(models.Model):
+    day = models.CharField(max_length=2)
+    description = models.TextField()
+    pack = models.ForeignKey(Package,on_delete=models.CASCADE)
