@@ -1,0 +1,155 @@
+{% load static %}
+{% include 'css.html' %}
+{% include 'js.html' %}
+{% include 'nav.html' %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="{% static 'style.css'%}">
+<style>
+    /* @font-face {
+    font-family: 'tfont';
+    src: local('Abc'),url("{% static 'font/PlayfairDisplay-VariableFont_wght.ttf' %}") format('opentype');
+    } */
+    @font-face {
+    font-family: 'tourfont';
+    src: url("{% static 'font/Nunito-Regular.ttf' %}") format('opentype');
+    }
+
+    @font-face {
+        font-family: 'tourfontbold';
+        src: url("{% static 'font/Nunito-Bold.ttf' %}") format('opentype');
+        }
+    @font-face {
+        font-family: 'tourfontbolder';
+        src: url("{% static 'font/Nunito-ExtraBold.ttf' %}") format('opentype');
+        }
+    @font-face {
+        font-family: 'tourfontlight';
+        src: url("{% static 'font/Nunito-Light.ttf' %}") format('opentype');
+        }    
+</style>
+<section>
+    <section class="banner_img">
+        <div>
+    
+        </div>
+    </section>
+    <section class="all_packages">
+        <!-- <div style="text-align: center;">
+            <h2>All Tours</h2>
+        </div> -->
+        
+        <div class="pack" style="width: 70%;margin: auto;">
+            <div class="fl_rw_">
+                {% for package in packages %}
+                    <div class="fl_rw s_pack" style="background: white">
+                        <div class="img w100p_" style="width: 22%;">
+                            <img src="media/{{package.banner.thumbnail}}" style="border-radius: 15px 0 0 15px;"/>
+                        </div>
+                        
+                        <div class="" style="width: 78%;">
+                            <div class="fl_rw" style="height: 100%;">
+                                <div style="padding: 1.2rem;width: 75%;">
+                                    <div class="pack-info w100p">
+                                        <h2 class="title">
+                                            {{package.name}}
+                                        </h2>
+                                        <div>
+
+                                            <div class="fl_rw m10b" >
+                                                <div class="w20p">
+                                                    <i class="fa fa-map-marker primary_color" style="font-size: 22px;" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="w80p f14p">
+                                                    <p style="color:black;font-family:tourfontlight;">
+                                                        {{package.destination}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="fl_rw m10b">
+                                                <div class="w20p">
+                                                    <i class="fa fa-clock-o primary_color" style="font-size: 22px;" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="w80p f14p" style="color:#4a4a4a;font-family:tourfontbold;">
+                                                    {{package.duration}}D/{{package.duration|add:"1"}}N
+                                                </div>
+                                                
+                                            </div>   
+                                            <div class="fl_rw m10b_" style="width: 70%;">
+                                                <div class="w100p">
+                                                    <div class="fl_cl" style="align-items: center;">
+                                                        <img class="l_icons" src="media/photos/icons/car.png">
+                                                        <span class="ft10p" style="font-family:tourfontlight;">Transfer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="w100p">
+                                                    <div class="fl_cl" style="align-items: center;">
+                                                        <img class="l_icons" src="media/photos/icons/meal.png">
+                                                        <span class="ft10p" style="font-family:tourfontlight;">Meal</span>
+                                                    </div>
+                                                </div>
+                                                <div class="w100p">
+                                                    <div class="fl_cl" style="align-items: center;">
+                                                        <img class="l_icons" src="media/photos/icons/binoculars.png">
+                                                        <span class="ft10p" style="font-family:tourfontlight;">Sightseeing</span>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="w100p">
+                                                    <div class="fl_cl" style="align-items: center;">
+                                                        <img class="l_icons" src="media/photos/icons/hotel.png">
+                                                        <span class="ft10p" style="font-family:tourfontlight;">Stay</span>
+                                                    </div>
+                                                </div>
+                                                <div class="w100p">
+                                                    <div class="fl_cl" style="align-items: center;">
+                                                        <img class="l_icons" src="media/photos/icons/plane.png">
+                                                        <span class="ft10p" style="font-family:tourfontlight;">Flight</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>                                         
+                                            <!-- <div class="fl_rw m10b">
+                                                <div class="w20p" style="width: 100px;">
+
+                                                </div>
+                                                <div class="w80p f14p">
+                                                    <p style="color:black">{{package.sightseeing}}</p>
+                                                    
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price_block" style="padding: 0 1.2rem 0 1.2rem;width: 25%;margin: 1.2rem 0 1.2rem 0;border-left: 1px solid rgba(0,0,0,0.1);">
+                                    <div class="pack-pricing w100p">
+                                        <div class="fl_cl">
+                                            
+                                            <i class="fa fa-star" aria-hidden="true" style="color:orange"></i>
+                                            <div>
+                                                
+                                                <span style="font-size: 12px;">132 Ratings</span>
+                                            </div>
+                                            <div>
+                                                <del style="color: grey;font-size: 0.8em;">INR {{package.mrp}}</del>
+                                                
+                                            </div>
+                                            <div>
+                                                <span style="color:black;font-size: 1em;font-family: tourfontbold;">
+                                                    INR {{package.listPrice}}
+                                                </span>
+                                            </div>
+                                            <div style="margin-top: 10px;">
+                                                <button type="button" class="button is-small is-rounded is-primary">Submit Query</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </section>
+</section>
