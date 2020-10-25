@@ -1,9 +1,19 @@
 {% load static %}
+<html>
 {% include 'css.html' %}
 {% include 'js.html' %}
 {% include 'nav.html' %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="{% static 'style.css'%}">
+
+
+<meta charset="UTF-8">
+<!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <style>
     /* @font-face {
     font-family: 'tfont';
@@ -27,6 +37,7 @@
         src: url("{% static 'font/Nunito-Light.ttf' %}") format('opentype');
         }    
 </style>
+<body>
 <section>
     <section class="banner_img">
         <div>
@@ -38,17 +49,27 @@
             <h2>All Tours</h2>
         </div> -->
         
-        <div class="pack" style="width: 70%;margin: auto;">
+        <div class="pack" style="margin: auto;">
             <div class="fl_rw_">
                 {% for package in packages %}
                     <div class="fl_rw s_pack" style="background: white">
-                        <div class="img w100p_" style="width: 22%;">
-                            <img src="media/{{package.banner.thumbnail}}" style="border-radius: 15px 0 0 15px;"/>
+                        <div class="img w100p_ block-left" >
+                            <div class="on-image-content">
+                                <h2 class="img-cont">
+                                    {{package.name}}
+                                </h2>
+                                
+                            </div>
+                            
+                            
+                            <div class="pack-img" style="background-image: url(media/{{package.banner.thumbnail}});background-position: center;background-size:cover" ></div>
+
+
                         </div>
                         
-                        <div class="" style="width: 78%;">
+                        <div class="block-right">
                             <div class="fl_rw" style="height: 100%;">
-                                <div style="padding: 1.2rem;width: 75%;">
+                                <div class="dy-pad" style="width: 75%;">
                                     <div class="pack-info w100p">
                                         <h2 class="title">
                                             {{package.name}}
@@ -74,7 +95,7 @@
                                                 </div>
                                                 
                                             </div>   
-                                            <div class="fl_rw m10b_" style="width: 70%;">
+                                            <div class="fl_rw m10b_ attr-icons">
                                                 <div class="w100p">
                                                     <div class="fl_cl" style="align-items: center;">
                                                         <img class="l_icons" src="media/photos/icons/car.png">
@@ -107,7 +128,10 @@
                                                     </div>
 
                                                 </div>
-                                            </div>                                         
+                                            </div>    
+                                            <div style="margin-top: 10px;" class="pack-mobile-button">
+                                                <button type="button" style="display: flex;margin-top: 10px;" class="button is-small is-rounded is-primary">Submit Query</button>
+                                            </div>                                     
                                             <!-- <div class="fl_rw m10b">
                                                 <div class="w20p" style="width: 100px;">
 
@@ -120,7 +144,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="price_block" style="padding: 0 1.2rem 0 1.2rem;width: 25%;margin: 1.2rem 0 1.2rem 0;border-left: 1px solid rgba(0,0,0,0.1);">
+                                <div class="price_block" style="">
                                     <div class="pack-pricing w100p">
                                         <div class="fl_cl">
                                             
@@ -138,7 +162,7 @@
                                                     INR {{package.listPrice}}
                                                 </span>
                                             </div>
-                                            <div style="margin-top: 10px;">
+                                            <div style="margin-top: 10px;" class="pack-desk-button">
                                                 <button type="button" class="button is-small is-rounded is-primary">Submit Query</button>
                                             </div>
                                         </div>
@@ -153,3 +177,5 @@
 
     </section>
 </section>
+</body>
+</html>
