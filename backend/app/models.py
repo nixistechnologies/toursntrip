@@ -4,6 +4,7 @@ from io import BytesIO
 import sys
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from djrichtextfield.models import RichTextField
+from datetime import datetime
 # from django.contrib.postgres.fields import JSONField
 
 # Create your models here.
@@ -17,16 +18,6 @@ class State(models.Model):
 # class Itinerary(models.Model):
 
 
-class lead(models.Model):
-    name = models.CharField(max_length=50)
-    contact = models.CharField(max_length=10)
-    email = models.EmailField()
-    date_of_travel = models.DateField()
-    destination = models.CharField(max_length=20)
-    from_city = models.CharField(max_length=20)
-    spacial_request = models.TextField(null=True, blank=True)
-    def __str__(self):
-        return self.name
 
 
 
@@ -54,6 +45,18 @@ class Package(models.Model):
         return self.name
 
 
+class lead(models.Model):
+    packid = models.ForeignKey(Package,on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    contact = models.CharField(max_length=10)
+    email = models.EmailField()
+    date_of_travel = models.DateField()
+    destination = models.CharField(max_length=20)
+    from_city = models.CharField(max_length=20)
+    spacial_request = models.TextField(null=True, blank=True)
+    date = models.DateTimeField(default=datetime.now)
+    def __str__(self):
+        return self.name
 
 class Banner(models.Model):
     package = models.OneToOneField(Package,on_delete=models.CASCADE)

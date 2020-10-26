@@ -130,7 +130,7 @@
                                                 </div>
                                             </div>    
                                             <div style="margin-top: 10px;" class="pack-mobile-button">
-                                                <button type="button" style="display: flex;margin-top: 10px;" class="button is-small is-rounded is-primary">Submit Query</button>
+                                                <button type="button" style="display: flex;margin-top: 10px;" packid="{{package.id}}" class="q_button button is-small is-rounded is-primary">Submit Query</button>
                                             </div>                                     
                                             <!-- <div class="fl_rw m10b">
                                                 <div class="w20p" style="width: 100px;">
@@ -163,7 +163,7 @@
                                                 </span>
                                             </div>
                                             <div style="margin-top: 10px;" class="pack-desk-button">
-                                                <button type="button" class="button is-small is-rounded is-primary">Submit Query</button>
+                                                <button type="button" packid="{{package.id}}" class="q_button button is-small is-rounded is-primary">Submit Query</button>
                                             </div>
                                         </div>
                                     </div>
@@ -177,5 +177,132 @@
 
     </section>
 </section>
+
+
+
+
+
+<div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content" style="overflow:unset;max-width: 450px;">
+        <div class="box">
+            <div style="overflow:hidden;margin-bottom: 10px;">
+                <div style="float:left">
+                    <h1 class="model-title" style="display: initial;font-weight: 300;font-size: 1.5em;">Get your quote</h1>
+                </div>
+                <div style="float: right;margin-top: 5px;">
+                    <button class="delete" aria-label="close"></button>
+                    <!-- <button class="modal-close is-large" aria-label="close"></button> -->
+                </div>
+            </div>
+            <form>
+                {% csrf_token %}
+                <div class="columns">
+                    <div class="column">
+                        <label class="label">Name</label>
+                        <input type="hidden" id="packid" />
+                        <input type="text" placeholder="Enter Name" name="name" class="input c_input" required/></div>
+                    <!-- <div class="column"><input type="date" name="end_date" class="input c_input is-small" required/></div>
+                    <div class="column is-2"><button type="submit" class="button is-small is-primary is-rounded">Excel</button></div> -->
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <label class="label">Enter Email</label>
+                        <input type="text" name="email" class="input c_input" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <label class="label">Contact Number</label>
+                        <input type="text" name="mobile" class="input c_input" placeholder="Contact Number" />
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <label class="label">Date of travel</label>
+                        <input type="date" name="date" class="input c_input" placeholder="Date of travel" />
+                    </div>
+                </div>
+                <div class="columns is-mobile">
+                    <div class="column is-6">
+                        <label class="label">Your Destination</label>
+                        <input type="text" name="destination" class="input c_input" placeholder="Destination" />
+                    </div>
+                    <div class="column is-6">
+                        <label class="label">City</label>
+                        <input type="text" name="city" class="input c_input" placeholder="From City" />
+                    </div>
+                </div>
+                <!-- <div class="columns">
+                    <div class="column">
+                        <label class="label">City</label>
+                        <input type="text" class="input c_input" placeholder="From City" />
+                    </div>
+                </div> -->
+                <input type="button" class="submitquery button is-primary is-rounded is-success is-small" value="Submit Query" />
+
+            </form>
+
+                    
+            
+        </div>
+    </div>
+    <!-- <button class="modal-close is-large" aria-label="close"></button> -->
+</div>
+
+
 </body>
+
+<script>
+    $(document).ready(()=>{
+        $(".q_button").click((e)=>{
+            console.log(e.currentTarget.getAttribute("packid"))
+            // console.log($(this).attr("packid"))
+            $("#packid").val(e.currentTarget.getAttribute("packid"))
+            
+            $(".modal").addClass("is-active")
+        })
+        $(".delete").click(()=>{
+            $(".modal").removeClass("is-active")
+        })
+        $(".modal-background").click(()=>{
+            $(".modal").removeClass("is-active")
+        })
+
+        $(".submitquery").click(()=>{
+            // console.log("clicked")
+            
+            // $(":input[name='name']").val()
+            // $(":input[name='name']").val()
+            // $(":input[name='name']").val()
+            // $(":input[name='name']").val()
+            // $(":input[name='name']").val()
+
+            $.ajax({
+                url:"/ajax_request",
+                method:'POST',
+                data:{
+                    "packid":$("#packid").val(),
+                    "name":$(":input[name='name']").val(),
+                    "mobile":$(":input[name='mobile']").val(),
+                    "email":$(":input[name='email']").val(),
+                    "date":$(":input[name='date']").val(),
+                    "destination":$(":input[name='destination']").val(),
+                    "city":$(":input[name='city']").val(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success:(e)=>{
+                    console.log("sucess")
+                    console.log(e)
+                },
+                error:(e)=>{
+                    console.log("error")
+                    console.log(e)
+                }
+            })
+            
+        })
+    })
+</script>
+
 </html>

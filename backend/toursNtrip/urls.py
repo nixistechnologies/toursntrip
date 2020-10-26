@@ -27,8 +27,8 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
     # path("")
     path('',index),
-    path('list',list_page)
-
+    path('list',list_page),
+    path("ajax_request",submitQuery),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

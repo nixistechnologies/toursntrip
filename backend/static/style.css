@@ -97,6 +97,19 @@ p{
 .pack-mobile-button{
     display: none;
 }
+.columns{
+    margin-bottom: 0px !important;
+}
+.input{
+    border-radius: 0 !important;
+}
+.input:active,.input:focus{
+    box-shadow: none !important;
+}
+
+.c_input{
+height: 2.1em !important;
+}
 
 .pack-desk-button{
     display: initial;
