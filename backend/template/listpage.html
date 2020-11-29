@@ -15,27 +15,11 @@
 
 
 <style>
+    
     /* @font-face {
     font-family: 'tfont';
     src: local('Abc'),url("{% static 'font/PlayfairDisplay-VariableFont_wght.ttf' %}") format('opentype');
     } */
-    @font-face {
-    font-family: 'tourfont';
-    src: url("{% static 'font/Nunito-Regular.ttf' %}") format('opentype');
-    }
-
-    @font-face {
-        font-family: 'tourfontbold';
-        src: url("{% static 'font/Nunito-Bold.ttf' %}") format('opentype');
-        }
-    @font-face {
-        font-family: 'tourfontbolder';
-        src: url("{% static 'font/Nunito-ExtraBold.ttf' %}") format('opentype');
-        }
-    @font-face {
-        font-family: 'tourfontlight';
-        src: url("{% static 'font/Nunito-Light.ttf' %}") format('opentype');
-        }    
 </style>
 <body>
 <section>
@@ -50,13 +34,26 @@
         </div> -->
         
         <div class="pack" style="margin: auto;">
+            
+        <div style="margin-top: 100px;">
+            <div style="margin-bottom: 20px;">
+                <span class="subtitle" style="font-weight: bold;font-family: Arial, Helvetica, sans-serif;">
+                    Found {{count}} Tours
+                </span>
+                
+            </div>
+            
+
             <div class="fl_rw_">
                 {% for package in packages %}
                     <div class="fl_rw s_pack" style="background: white">
                         <div class="img w100p_ block-left" >
                             <div class="on-image-content">
-                                <h2 class="img-cont">
-                                    {{package.name}}
+                                <h2 class="img-cont" style="font-family: Arial">
+                                    <a href="/{{package.name.split|join:'-'}}-{{package.id}}">
+                                        {{package.name}}
+                                    </a>
+                                    
                                 </h2>
                                 
                             </div>
@@ -71,8 +68,10 @@
                             <div class="fl_rw" style="height: 100%;">
                                 <div class="dy-pad" style="width: 75%;">
                                     <div class="pack-info w100p">
-                                        <h2 class="title">
-                                            {{package.name}}
+                                        <h2 class="title" style="font-family: Arial">
+                                            <a href="/{{package.name.lower.split|join:'-'}}-{{package.id}}">
+                                                {{package.name}}
+                                            </a>
                                         </h2>
                                         <div>
 
@@ -175,6 +174,51 @@
             </div>
         </div>
 
+            <div>
+                <nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+                    <!-- <a class="pagination-previous">Previous</a> -->
+                    <!-- <a class="pagination-next">Next page</a> -->
+
+                    {% if packages.has_previous %}
+                    <!-- <a href="?page=1">&laquo; first</a> -->
+                    <a href="?page={{ packages.previous_page_number }}" class="pagination-previous" >Previous Page</a>
+                    {% endif %}
+
+                    {% if packages.has_next %}
+                        <a href="?page={{ packages.next_page_number }}" class="pagination-next">Page Page</a>
+                        <!-- <a href="?page={{ packages.paginator.num_pages }}">last &raquo;</a> -->
+                    {% endif %}
+                    
+                    
+                    <ul class="pagination-list">
+                      
+                      <!-- <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+                      <li><span class="pagination-ellipsis">&hellip;</span></li>
+                      <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+                      <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+                      <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+                      <li><span class="pagination-ellipsis">&hellip;</span></li>
+                      <li><a class="pagination-link" aria-label="Goto page 86">86</a></li> -->
+
+
+                      <!-- {% if packages.has_previous %}
+                      <a href="?page=1">&laquo; first</a>
+                      <a href="?page={{ packages.previous_page_number }}" >previous</a>
+                      {% endif %} -->
+                
+                        <!-- <span class="current">
+                            Page {{ packages.number }} of {{ packages.paginator.num_pages }}.
+                        </span> -->
+                
+
+
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+
+
+
     </section>
 </section>
 
@@ -250,7 +294,7 @@
     <!-- <button class="modal-close is-large" aria-label="close"></button> -->
 </div>
 
-
+{% include 'footer.html' %}
 </body>
 
 <script>

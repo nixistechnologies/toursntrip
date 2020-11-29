@@ -29,6 +29,7 @@ urlpatterns = [
     path('',index),
     path('list',list_page),
     path("ajax_request",submitQuery),
+    path("<str:package>/",detailPage)
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

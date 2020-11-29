@@ -1,3 +1,5 @@
+
+
 body{
     color: black;
     font-family: tourfont;
@@ -82,7 +84,11 @@ color: #00d1b2;
 .fl_lt{
     float: left;
 }
+.over_text p{
+    color: grey;
+}
 p{
+    text-align: justify;
     color: black;
 }
 .block-left{

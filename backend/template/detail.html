@@ -1,0 +1,95 @@
+{% comment %} {% extends 'base.html' %}  {% endcomment %}
+
+{% load static %}
+<html>
+{% include 'css.html' %}
+{% include 'js.html' %}
+{% include 'nav.html' %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <body>
+        <section style="margin-top: 20px;">
+            <div class="fl_rw" style="width: 80%;margin: auto;">
+                <section style="width: 75%;">
+                    <div class="cntnt" style="padding:0px 20px 0px 10px">
+                        <div style="background:url({{package.banner.normal.url}});height: 350px;background-repeat: no-repeat;background-position: center;background-size: cover;">
+                            <!-- <img src="{{package.banner.normal.url}}" /> -->
+                        </div>
+                        <div style="padding: 10px 0 10px 0;">
+                            <div style="font-family: Arial, Helvetica, sans-serif;font-size: 2em;font-weight: bold;">
+                                {{package.name}}
+                            </div>
+                            <div>
+                                <span class="over_text">
+                                    {{package.overview | safe}}
+                                </span>
+                            </div>
+                            <!-- <hr> -->
+                            <div style="margin-top: 20px;">
+                                <h2 style="font-size: 1.8em;font-family:Arial, Helvetica, sans-serif;font-weight: bold;">ITERNARY</h2>
+                                <div style="margin-top: 10px;">
+                                    <div>
+                                        <h3 style="font-weight: bold;">Day 1 - Guwahati,Assam-Shillong (100kms/2hrs) </h3>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h3 style="font-weight: bold;">Day 2 - Shillong -Cherrapunji (60kms/1:15mints)- Shillong  </h3>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h3 style="font-weight: bold;">Day 3 - Shillong,Meghlaya - Kaziranga,Assam (320kms/6hrs)  </h3>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <h3 style="font-weight: bold;">Day 4 - Kaziranga  </h3>
+                                    </div>                                                                                                            
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        
+                    </div>
+                </section>
+
+                <section style="width: 25%;">
+                    <div style="display:flex;border: 1px solid rgb(225, 225, 225);padding: 10px;">
+                        <div class="card_" style="align-self: center;width: 100%;text-align: center;">
+                            <h2 class="title">Excellent</h2>
+                            <div style="font-size: 1.3em;">5</div>
+                            <i class="fa fa-star" aria-hidden="true" style="color:orange"></i>
+                            <div style="font-size:0.7em">132 Reviews</div>
+                        </div>
+
+                    </div>
+                    <div style="display:flex;border: 1px solid rgb(225, 225, 225);margin-top: 30px;padding: 10px">
+                        <div class="card_" style="align-self: center;width: 100%;text-align: center;">
+                            
+                            <!-- <h2 class="title" style="font-weight: 300;">Excellent</h2>
+                            <div style="font-size: 1.3em;">5</div> -->
+                            <div class="fl_rw">
+                                <div style="width: 50%;">
+                                    <del style="color: grey;">{{package.mrp}}</del>
+                                    <div class="title">{{package.listPrice}} INR</div>
+                                </div>
+                                <div style="width: 50%;">
+                                    <span>Save</span>
+                                    <div><b>20</b></div>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                    </div>                    
+                </section>
+            </div>
+        </section>
+
+    </body>
+
+
+</html>
