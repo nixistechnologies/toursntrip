@@ -11,27 +11,30 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <body>
+    <body style="background: #eaecf0;">
         <section style="margin-top: 20px;">
-            <div class="fl_rw" style="width: 80%;margin: auto;">
-                <section style="width: 75%;">
+            <div class="fl_rw" style="width: 90%;margin: auto;">
+                <section style="width: 70%;">
                     <div class="cntnt" style="padding:0px 20px 0px 10px">
                         <div style="background:url({{package.banner.normal.url}});height: 350px;background-repeat: no-repeat;background-position: center;background-size: cover;">
                             <!-- <img src="{{package.banner.normal.url}}" /> -->
                         </div>
-                        <div style="padding: 10px 0 10px 0;">
-                            <div style="font-family: Arial, Helvetica, sans-serif;font-size: 2em;font-weight: bold;">
+                        <div style="padding: 10px 0 10px 0;padding:10px;background-color: white;">
+                            <div style="font-size: 1.6em;font-weight: bold;">
                                 {{package.name}}
                             </div>
-                            <div>
+                            <div style="margin-top: 12px;">
                                 <span class="over_text">
                                     {{package.overview | safe}}
                                 </span>
                             </div>
                             <!-- <hr> -->
-                            <div style="margin-top: 20px;">
-                                <h2 style="font-size: 1.8em;font-family:Arial, Helvetica, sans-serif;font-weight: bold;">ITERNARY</h2>
-                                <div style="margin-top: 10px;">
+                        </div>
+
+                        <div style="padding: 10px 0 10px 0;padding:10px;background-color: white;margin-top: 20px;">
+                            <div>
+                                <h2 style="font-size: 1.5em;font-weight: bold;">ITERNARY</h2>
+                                <div style="margin-top: 12px;">
                                     <div>
                                         <h3 style="font-weight: bold;">Day 1 - Guwahati,Assam-Shillong (100kms/2hrs) </h3>
                                     </div>
@@ -48,16 +51,14 @@
                                         <h3 style="font-weight: bold;">Day 4 - Kaziranga  </h3>
                                     </div>                                                                                                            
                                 </div>
-                            </div>
-
+                            </div>                        
                         </div>
-                        
-                        
                     </div>
+
                 </section>
 
-                <section style="width: 25%;">
-                    <div style="display:flex;border: 1px solid rgb(225, 225, 225);padding: 10px;">
+                <section style="width: 30%;">
+                    <div style="display:flex;border: 1px solid rgb(225, 225, 225);padding: 20px 10px 20px 10px;background-color: white;">
                         <div class="card_" style="align-self: center;width: 100%;text-align: center;">
                             <h2 class="title">Excellent</h2>
                             <div style="font-size: 1.3em;">5</div>
@@ -66,25 +67,97 @@
                         </div>
 
                     </div>
-                    <div style="display:flex;border: 1px solid rgb(225, 225, 225);margin-top: 30px;padding: 10px">
+                    <div style="display:flex; flex-flow:column; border: 1px solid rgb(225, 225, 225);margin-top: 20px;padding: 20px 10px 20px 10px;background-color: white;">
+                        <div class="fl_rw m10b" >
+                            <div class="w20p">
+                                <img class="l_icons" src="/media/photos/icons/pin.png">
+                            </div>
+                            <div class="w80p f14p" style="margin-left: 10px;">
+                                <p style="color:black;font-family:tourfontlight;">
+                                    {{package.destination}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="fl_rw m10b">
+                            <div style="width: 100%;" class="fl_rw">
+                                <div class="w20p_">
+                                    <img class="l_icons" src="/media/photos/icons/sun.png">
+                                </div>
+                                <div class="w80p_ f14p" style="color:#4a4a4a;font-family:tourfontbold;margin-left: 10px;">
+                                    {{package.duration}} Days
+                                </div>
+                            </div>
+                            <div style="width: 100%;" class="fl_rw">
+                                <div class="w20p_">
+                                    <img class="l_icons" src="/media/photos/icons/moon.png">
+                                </div>
+                                <div class="w80p_ f14p" style="color:#4a4a4a;font-family:tourfontbold;margin-left: 10px;">
+                                    {{package.duration|add:"1"}} Nights
+                                </div>
+                            </div>
+                        </div>                     
+                    
+                    </div>                   
+
+                    <div style="display:flex;border: 1px solid rgb(225, 225, 225);margin-top: 20px;padding: 20px 10px 20px 10px;background-color: white;">
                         <div class="card_" style="align-self: center;width: 100%;text-align: center;">
                             
                             <!-- <h2 class="title" style="font-weight: 300;">Excellent</h2>
                             <div style="font-size: 1.3em;">5</div> -->
                             <div class="fl_rw">
-                                <div style="width: 50%;">
+                                <div style="width: 100%;">
+                                    <div class="title_" style="color: #00c4a7;font-weight: 900;font-size: 1.3em;font-family: tourfontbold;">{{package.listPrice}} INR</div>
                                     <del style="color: grey;">{{package.mrp}}</del>
-                                    <div class="title">{{package.listPrice}} INR</div>
+                                
                                 </div>
-                                <div style="width: 50%;">
+                                <!-- <div style="width: 50%;">
                                     <span>Save</span>
                                     <div><b>20</b></div>
-                                </div>
+                                </div> -->
                             </div>
-                        
+                            <div>
+                                <div class="fl_rw m10b_ attr-icons" style="width: 100%;margin-top: 15px;margin-bottom: 15px;">
+                                    <div class="w100p">
+                                        <div class="fl_cl" style="align-items: center;">
+                                            <img class="l_icons" src="/media/photos/icons/car.png">
+                                            <span class="ft10p" style="font-family:tourfontlight;">Transfer</span>
+                                        </div>
+                                    </div>
+                                    <div class="w100p">
+                                        <div class="fl_cl" style="align-items: center;">
+                                            <img class="l_icons" src="/media/photos/icons/meal.png">
+                                            <span class="ft10p" style="font-family:tourfontlight;">Meal</span>
+                                        </div>
+                                    </div>
+                                    <div class="w100p">
+                                        <div class="fl_cl" style="align-items: center;">
+                                            <img class="l_icons" src="/media/photos/icons/binoculars.png">
+                                            <span class="ft10p" style="font-family:tourfontlight;">Sightseeing</span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="w100p">
+                                        <div class="fl_cl" style="align-items: center;">
+                                            <img class="l_icons" src="/media/photos/icons/hotel.png">
+                                            <span class="ft10p" style="font-family:tourfontlight;">Stay</span>
+                                        </div>
+                                    </div>
+                                    <div class="w100p">
+                                        <div class="fl_cl" style="align-items: center;">
+                                            <img class="l_icons" src="/media/photos/icons/plane.png">
+                                            <span class="ft10p" style="font-family:tourfontlight;">Flight</span>
+                                        </div>
+
+                                    </div>
+                                </div>                                   
+                            </div>
+
+                            <button type="button" class="button is-primary is-rounded is-small" style="font-weight: bold;">Submit Query</button>
                         </div>
 
+
                     </div>                    
+
                 </section>
             </div>
         </section>
