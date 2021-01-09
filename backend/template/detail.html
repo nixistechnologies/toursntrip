@@ -7,11 +7,13 @@
 {% include 'nav.html' %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'detail.css'%}">
     <meta charset="UTF-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <body style="background: #eaecf0;">
+    <!-- style="background: #eaecf0;" -->
+    <body>
         <section style="margin-top: 20px;">
             <div class="fl_rw" style="width: 90%;margin: auto;">
                 <section style="width: 70%;">
@@ -19,7 +21,7 @@
                         <div style="background:url({{package.banner.normal.url}});height: 350px;background-repeat: no-repeat;background-position: center;background-size: cover;">
                             <!-- <img src="{{package.banner.normal.url}}" /> -->
                         </div>
-                        <div style="padding: 10px 0 10px 0;padding:10px;background-color: white;">
+                        <div class="art">
                             <div style="font-size: 1.6em;font-weight: bold;">
                                 {{package.name}}
                             </div>
@@ -31,33 +33,107 @@
                             <!-- <hr> -->
                         </div>
 
-                        <div style="padding: 10px 0 10px 0;padding:10px;background-color: white;margin-top: 20px;">
+                        <div class="art">
                             <div>
                                 <h2 style="font-size: 1.5em;font-weight: bold;">ITERNARY</h2>
                                 <div style="margin-top: 12px;">
-                                    <div>
-                                        <h3 style="font-weight: bold;">Day 1 - Guwahati,Assam-Shillong (100kms/2hrs) </h3>
+                                    
+                                    
+                                    {% for it in package.package_itinerary_set.all %}
+                                    
+                                    
+                                    
+                                    <div class="it_m_block">
+                                    
+                                        <div>
+
+                                        </div>
+                                        <div class="it_block" >
+                                            <div class="fl_rw" style="margin-left: -28px;">
+                                                <div class="circle">
+
+                                                </div>
+                                                <div class="it_title">
+                                                    <h3>{{it.day}} </h3>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div style="display:flex;flex-flow: wrap;">
+                                                    <div class="tags">
+                                                    {% for hight in it.heightligts_as_list %}
+                                                        <!-- <div class="bx_outer">
+                                                            <div class="bx_inner">
+                                                                {{ hight }}
+                                                            </div>
+                                                        </div> -->
+                                                        <div class="tag is-rounded is-light is-primary">
+                                                            {{ hight }}
+                                                        </div>
+
+                                                        
+                                                        
+                                                    {% endfor %}
+                                                </div>
+
+                                                </div>
+
+                                            </div>
+                                            
+                                            
+                                            <div class="it_content">
+                                                <p>
+                                                    {{it.description|safe}}
+                                                </p>
+                                                
+                                            </div>                                        </div>
+
+                                        <!-- <hr> -->
                                     </div>
-                                    <hr>
-                                    <div>
-                                        <h3 style="font-weight: bold;">Day 2 - Shillong -Cherrapunji (60kms/1:15mints)- Shillong  </h3>
-                                    </div>
-                                    <hr>
-                                    <div>
-                                        <h3 style="font-weight: bold;">Day 3 - Shillong,Meghlaya - Kaziranga,Assam (320kms/6hrs)  </h3>
-                                    </div>
-                                    <hr>
-                                    <div>
-                                        <h3 style="font-weight: bold;">Day 4 - Kaziranga  </h3>
-                                    </div>                                                                                                            
+                                    {% endfor %}
                                 </div>
                             </div>                        
                         </div>
+                        <div class="art">
+                            <span class="title_" style="font-size: 1.5em;font-weight: bold;">
+                                Inclusion
+                            </span>
+                                <div style="padding-left:20px;margin-top: 15px;">
+                                    <ul class="inclusion">
+                                        <li>Welcome drink on arrival (non alcohlic)</li>
+                                        <li>Accommodation in Double room in Trivandrum and Kovalam. </li>
+                                        <li>Sightseeing as per the itinerary on point to point basis.</li>
+                                        <li>Daily breakfast at hote</li>
+                                        <li>All Transportation by Private AC Car  with Driver with ample local knowledge as per the above tour. </li>
+                                        <li>Transportation charges are inclusive of all fuel charges, daily driver allowance, night charges, toll taxes and parking. </li>
+                                        <li>Limit of 600 km for 4 days for taxi. Extra km will be charged @ Rs 12 per km. </li>
+                                        <li>Local assistance if required.</li>
+                                    </ul>
+                                </div>
+                        </div>
+                        <div class="art">
+                            <span class="title_" style="font-size: 1.5em;font-weight: bold;">
+                                Exclusion
+                            </span>
+                                <div style="padding-left:20px;margin-top: 15px;">
+                                    <ul class="exclusion">
+                                        <li>Local guides for sight-seeing.</li>
+                                        <li>GST @5%  </li>
+                                        <li>Any optional activities like boating, trekking, paragliding, jungle safari, Elephant safari, Kath kali show and Ayurveda massages. </li>
+                                        <li>Any kind of airfare /train fare. </li>
+                                        <li>Any still / video camera fees applicable at the monuments or activities are chargeable direct.</li>
+                                        <li>Any alcoholic and non-alcoholic beverages, mineral water, use of mini bar in room and room service. </li>
+                                        <li>Personal expenses such as laundry, communication charges (Phone/Internet). </li>
+                                        <li>Lunch, dinner, en route meals, sightseeing and activities other than those mentioned in the itinerary.</li>
+                                        <li>Tips and gratuities to drivers, Guides etc. and any other expenses/service not mentioned in the inclusions. </li>
+                                        <li>Toursntrip reserves the right to change/modify or terminate the offer any time at its own discretion and without any prior notice.</li>
+                                    </ul>
+                                </div>
+                        </div>                        
                     </div>
 
                 </section>
 
-                <section style="width: 30%;">
+                <section style="width: 30%;" class="right_portion">
                     <div style="display:flex;border: 1px solid rgb(225, 225, 225);padding: 20px 10px 20px 10px;background-color: white;">
                         <div class="card_" style="align-self: center;width: 100%;text-align: center;">
                             <h2 class="title">Excellent</h2>
@@ -156,7 +232,8 @@
                         </div>
 
 
-                    </div>                    
+                    </div>     
+            
 
                 </section>
             </div>
@@ -164,5 +241,23 @@
 
     </body>
 
+    <script>
+        $(document).ready(()=>{
+            $(".it_block").on('click',(e)=>{
+                // console.log($($(e).find(".it_content")))
+                // $(e.currentTarget.childNodes[5]).toggle({top:200})
+                
+                var target = e.currentTarget.childNodes[5]
+                $(target).slideToggle()
+                    
+                // $(".it_title").click((x)=>{
+                //     $(target).slideToggle()
+                // })
+                
+                // console.log(e.currentTarget.childNodes[5])
+                // $($(e).find(".it_content")).toggle()
+            })
+        })
+    </script>
 
 </html>

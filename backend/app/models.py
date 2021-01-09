@@ -46,7 +46,7 @@ class Package(models.Model):
 
 
 class lead(models.Model):
-    packid = models.ForeignKey(Package,on_delete=models.CASCADE)
+    packid = models.ForeignKey(Package,on_delete=models.CASCADE,null=True,blank=True)
     name = models.CharField(max_length=50)
     contact = models.CharField(max_length=10)
     email = models.EmailField()
@@ -133,6 +133,13 @@ class ProductImages(models.Model):
 
     
 class Package_Itinerary(models.Model):
-    day = models.CharField(max_length=2)
-    description = models.TextField()
+    day = models.CharField(max_length=80,null=True,blank=True)
+    heightligts = models.CharField(max_length=200,null=True,blank=True)
+    description = models.TextField(null=True,blank=True)
     pack = models.ForeignKey(Package,on_delete=models.CASCADE)
+
+
+    def heightligts_as_list(self):
+        return self.heightligts.split(',')
+    def __str__(self):
+        return  str(self.pack.id)+" | " +self.day
